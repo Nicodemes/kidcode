@@ -1,0 +1,20 @@
+html
+	head
+		title Bracelet Information
+		link(href='//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css', rel='stylesheet')
+	body
+		div.container
+			div.jumbotron
+				p 
+					strong First Name:
+					span=bardata.firstname
+				p 
+					strong Last Name:
+					span=bardata.lastname
+				p 
+					strong Phone number:
+					span=bardata.phone
+			p
+				span if this bracelet belongs to you and you want to edit it. you need to 
+				a(href='/login') login
+				
