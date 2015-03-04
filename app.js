@@ -88,7 +88,13 @@ app.get('/bracelet/:id', function(req, res) {
 				    account.getCustomData(function(err, customData) {
 			  			console.log(customData);
 			  			res.render('bracelet',{
-	  						bardata:customData
+			  				    givenName: customData.firstname,
+							    surname: customData.lastname,
+							    phone: customData.phone,
+							    streetAddress:customData.streetAddress,
+							    city: customData.city,
+							    state: customData.state,
+							    zip:customData.zip
 	  					})
 	  					callback()
 					});		

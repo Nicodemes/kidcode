@@ -4,16 +4,23 @@ html
 		link(href='//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css', rel='stylesheet')
 	body
 		div.container
+			div.page-header
+				h1 Bracelet Number #{branum}
 			div.jumbotron
 				p 
-					strong First Name:
-					span=bardata.firstname
+					strong First Name: #{givenName}
 				p 
-					strong Last Name:
-					span=bardata.lastname
+					strong Last Name: #{surname}
 				p 
-					strong Phone number:
-					span=bardata.phone
+					strong Phone number: #{phone}
+				p 
+					strong Street address: #{streetAddress}
+				p 
+					strong City: #{city}
+				p 
+					strong State: #{state}
+				p 
+					strong ZIP: #{zip}
 			p
 				span if this bracelet belongs to you and you want to edit it. you need to 
 				a(href='/login') login

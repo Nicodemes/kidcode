@@ -15,6 +15,7 @@ var profileForm = forms.create({
   streetAddress: forms.fields.string(),
   city: forms.fields.string(),
   state: forms.fields.string(),
+  phone:forms.fields.string(),
   zip: forms.fields.string()
 });
 
@@ -25,9 +26,11 @@ var profileForm = forms.create({
 function renderForm(req,res,locals){
   res.render('profile', extend({
     title: 'My Profile',
+    branum:req.user.username,
     csrfToken: req.csrfToken(),
-    givenName: req.user.givenName,
-    surname: req.user.surname,
+    givenName: req.user.customData.firstname,
+    surname: req.user.customData.lastname,
+    phone: req.user.customData.phone,
     streetAddress: req.user.customData.streetAddress,
     city: req.user.customData.city,
     state: req.user.customData.state,
@@ -56,8 +59,9 @@ module.exports = function profile(){
         // The express-stormpath library will populate req.user,
         // all we have to do is set the properties that we care
         // about and then cal save() on the user object:
-        req.user.givenName = form.data.givenName;
-        req.user.surname = form.data.surname;
+        req.user.customData.firstname = form.data.givenName;
+        req.user.customData.lastname = form.data.surname;
+        req.user.customData.phone = form.data.phone;
         req.user.customData.streetAddress = form.data.streetAddress;
         req.user.customData.city = form.data.city;
         req.user.customData.state = form.data.state;
