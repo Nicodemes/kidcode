@@ -48,7 +48,7 @@ app.use(stormpathMiddleware);
 
 app.get('/', function(req, res) {
   res.render('home', {
-    title: 'Welcome'
+    x: 'Welcome'
   });
 });
 //-----------------------------------
